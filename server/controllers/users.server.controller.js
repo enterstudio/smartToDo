@@ -12,7 +12,7 @@ var _ = require('lodash'),
 	htmlToText = require('html-to-text');
 
 	var OAuth2 = google.auth.OAuth2;
-	var oauth2Client = new OAuth2("936284847251-bj0uqov666e6a95p16stn172ld2im9dv.apps.googleusercontent.com", "jfNxtaEeLaOKdCnq_GY4LAwF", "http://localhost:9001/hello");
+	var oauth2Client = new OAuth2("936284847251-bj0uqov666e6a95p16stn172ld2im9dv.apps.googleusercontent.com", "jfNxtaEeLaOKdCnq_GY4LAwF", "http://localhost/hello");
 
 	var scopes = [
 	  'https://www.googleapis.com/auth/gmail.readonly',
