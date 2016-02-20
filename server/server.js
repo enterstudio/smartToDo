@@ -8,6 +8,8 @@ var uri = 'mongodb://localhost/mailtodo';
 var db = mongoose.connect(uri,function(){
 });
 
+require('./models/User.js');
+
 var app = require('./express.js')(db);
 
 app.listen(app.get('port'), function(){

@@ -4,6 +4,7 @@ import createMemoryHistory from 'history/lib/createMemoryHistory';
 import {Router, Route, IndexRoute} from 'react-router';
 import Template from './core/Template.jsx';
 import Home from './core/Home.jsx';
+import Hello from './core/HelloWorld.jsx';
 
 var history;
 if (typeof(window) !== 'undefined') {
