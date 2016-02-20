@@ -1,6 +1,8 @@
 
 import React from 'react';
 import {Jumbotron, Grid, Row, Col, Button} from 'react-bootstrap';
+import {LinkContainer} from 'react-router-bootstrap';
+import TodoApp from "../todo/ToDoApp.jsx";
 import UserStore from './../../stores/UserStore.jsx';
 
 class Home extends React.Component {
@@ -20,10 +22,9 @@ class Home extends React.Component {
           <Col md={12}>
             <Jumbotron>
               <p>
-                hello
                 <Button bsSize="large" bsStyle="danger" onClick={this.authGmail}>Sign In with Gmail</Button></p>
               </Jumbotron>
-
+          <TodoApp/>
         </Col>
       </Row>
     </Grid>
