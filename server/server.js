@@ -1,7 +1,16 @@
+'use strict';
+require("babel/register");
+
+var mongoose = require ('mongoose');
 var express = require ('express');
-var app = new express();
 
-app.use(express.static('./Web'));
+var uri = 'mongodb://localhost/mailtodo';
+var db = mongoose.connect(uri,function(){
+});
 
-var server = app.listen(80, '0.0.0.0');
-console.log("NodeJS web server running on 0.0.0.0:3000");
+var app = require('./express.js')(db);
+
+app.listen(app.get('port'), function(){
+})
+
+module.exports = app;
