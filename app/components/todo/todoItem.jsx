@@ -1,14 +1,19 @@
 import React from 'react';
-import { Grid, Row, Col, Button} from 'react-bootstrap';
-import TodoTextInput from "./TodoTextInput";
+import { Grid, Row, Col} from 'react-bootstrap';
+import TodoTextInput from "./TodoTextInput.jsx";
 
 class ToDoItem extends React.Component {
   constructor() {
     super();
     this.state = {};
     this.state.isEditing = true;
-
+    this._onSave = this._onSave.bind(this);
   }
+
+  _onSave(value) {
+   console.log(value);
+   this.setState({isEditing: false});
+ }
 
   render() {
 var todo = this.props.todo;
@@ -19,7 +24,7 @@ var todo = this.props.todo;
           <Col md={12}>
             <li>
        {todo.title}
-       <TodoTextInput value={todo.title} />
+       <TodoTextInput onSave={this._onSave} value={todo.title} />
      </li>
 
           </Col>

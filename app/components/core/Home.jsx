@@ -2,7 +2,7 @@
 import React from 'react';
 import {Jumbotron, Grid, Row, Col, Button} from 'react-bootstrap';
 import {LinkContainer} from 'react-router-bootstrap';
-import TodoApp from "../todo/toDoApp.jsx";
+import TodoApp from "../todo/ToDoApp.jsx";
 
 class Home extends React.Component {
   constructor(props, context){
