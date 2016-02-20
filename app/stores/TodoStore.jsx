@@ -37,32 +37,16 @@ function getAllTodos(){
   };
 
 
-  function editTask(task, id, history) {
-
-    put(`api/tasks/${id}`, task).then((data) => {
-      task = data;
+  function editTodo(todo, value) {
+    var index = todos.indexOf(todo);
+      todos[index].title = value;
       triggerListeners();
-      history.pushState(null, '/tasks/' + data._id);
-    }).catch((err) => {
-      if (err.status == 401) {
-        error = err.message;
-        authCheck(history);
-      }
-    })
   }
 
-  function deleteTask(id, history) {
-
-    del(`api/tasks/${id}`).then((g) => {
-      taskDeleted = 'true';
+  function deleteTodo(todo) {
+    var index = todos.indexOf(todo);
+      todos.splice(index,1);
       triggerListeners();
-      history.pushState(null, '/tasks');
-    }).catch((err) => {
-      if (err.status == 401) {
-        error = err.message;
-        authCheck(history);
-      }
-    })
   }
 
 
@@ -80,8 +64,8 @@ function getAllTodos(){
     onChange: onChange,
     getAllTodos: getAllTodos,
     removeChangeListener: removeChangeListener,
-    editTask: editTask,
-    deleteTask: deleteTask,
+    editTodo: editTodo,
+    deleteTodo: deleteTodo
   }
 }
 
