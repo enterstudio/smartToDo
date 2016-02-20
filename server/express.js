@@ -16,6 +16,7 @@ app.use(cors())
 .use(parser.json());
 
 require('./routes/users.server.routes.js')(app);
+require('./routes/todos.server.routes.js')(app);
 
 app.use(function(req, res, next) {
     if(req.url.match(/.+\/static/)){

@@ -9,7 +9,8 @@ var _ = require('lodash'),
 	User = mongoose.model('User'),
 	google = require('googleapis'),
 	atob = require('atob'),
-	htmlToText = require('html-to-text');
+	htmlToText = require('html-to-text'),
+	Todo = require('./../models/Todo.js');
 
 	var natural = require('natural'),
 	  classifier = new natural.BayesClassifier();
@@ -61,14 +62,14 @@ exports.gmailToken = function(req, res){
 							 user.threadsTotal = response.threadsTotal;
 							 user.historyId = response.historyId;
 						 }
-						 user.save(function(err){
+						 user.save(function(err,data){
 							 if (err) {
 						 			return res.status(400).send({
 						 				message: errorHandler.getErrorMessage(err)
 						 			});
 						 		} else {
 									//fetch emails, decode, send array to frontend
-									getFirstEmails(oauth2Client, res, user);
+									getFirstEmails(oauth2Client, res, data);
 
 								}
 						 });
@@ -105,10 +106,15 @@ function getFirstEmails(auth, res, user){
 			 		id: messages[i].id
 				}, function(err, response){
 					var email = {};
+					email.message_id = response.id;
 					email.subject = extractField(response, "Subject");
-					email.date = extractField(response, "Date");
+					email.mail_date = extractField(response, "Date");
 					email.from = extractField(response, "From");
 					email.historyId = response.historyId;
+					email.thread_id = response.threadId;
+					email.snippet = response.snippet;
+					email.title = email.subject;
+					email.user = user;
 					var content = "";
 					if(response.payload.parts && response.payload.parts.length > 0){
 						var part = response.payload.parts.filter(function(part) {
@@ -127,7 +133,9 @@ function getFirstEmails(auth, res, user){
 					}else{
 						email.content = extractContent(atob(content.replace(/-/g, '+').replace(/_/g, '/')));
 					}
-					email.classification = classifier.classify(email.subject + " " + email.content);
+					email.category = classifier.classify(email.subject + " " + email.content);
+					saveToDo(email);
+					console.log(email.category);
 					console.log(email.subject);
 				});
 			 }
@@ -141,6 +149,20 @@ var extractField = function(json, fieldName) {
     return header.name === fieldName;
   })[0].value;
 };
+function saveToDo(email){
+	var todo = new Todo(email);
+	todo.user = email.user;
+	todo.save(function(err, data) {
+		if (err) {
+			return res.status(400).send({
+
+					message: "Save Not successful"
+				});
+		} else {
+			console.log(data);
+		}
+	});
+}
 function extractContent(s) {
   return htmlToText.fromString(s, {ignoreHref:true, ignoreImage: true});
 };
