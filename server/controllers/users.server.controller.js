@@ -11,8 +11,10 @@ var _ = require('lodash'),
 	atob = require('atob'),
 	htmlToText = require('html-to-text');
 
+	var natural = require('natural'),
+	  classifier = new natural.BayesClassifier();
 	var OAuth2 = google.auth.OAuth2;
-	var oauth2Client = new OAuth2("936284847251-bj0uqov666e6a95p16stn172ld2im9dv.apps.googleusercontent.com", "jfNxtaEeLaOKdCnq_GY4LAwF", "http://localhost:9001/hello");
+	var oauth2Client = new OAuth2("936284847251-bj0uqov666e6a95p16stn172ld2im9dv.apps.googleusercontent.com", "jfNxtaEeLaOKdCnq_GY4LAwF", "http://localhost/hello");
 
 	var scopes = [
 	  'https://www.googleapis.com/auth/gmail.readonly',
@@ -125,7 +127,8 @@ function getFirstEmails(auth, res, user){
 					}else{
 						email.content = extractContent(atob(content.replace(/-/g, '+').replace(/_/g, '/')));
 					}
-					console.log(email);
+					email.classification = classifier.classify(email.subject + " " + email.content);
+					console.log(email.subject);
 				});
 			 }
 			 					res.json(user);
@@ -141,3 +144,36 @@ var extractField = function(json, fieldName) {
 function extractContent(s) {
   return htmlToText.fromString(s, {ignoreHref:true, ignoreImage: true});
 };
+
+
+  //classifier.addDocument(['', 'gold'], 'meeting');
+  classifier.addDocument('A credit or debit card thats in your account has expired. If you like tokeep using it for your account, update its expiration date.', 'reminders');
+  classifier.addDocument('ready for delvery.You may now collect it from the delivery counter', 'reminders');
+  classifier.addDocument('The work week has ended, and your weekly timelog is available for review.', 'reminders');
+  classifier.addDocument('pay your internet bill. Internet service will expire by the end of the month.Three days left.','reminders');
+  classifier.addDocument('thanks for all !  lets test sometime this week', 'meeting');
+  classifier.addDocument('Submission of Poster Proposals - deadline. For the review process, an abstract of 300 words should be submitted by Friday', 'deadline');
+  classifier.addDocument('register for an event. Registration Regulation: For poster presentation at the Conference and inclusion of the poster extended abstract in the Proceedings, at least one registration per poster is required by 8 April 2016.', 'registration');
+
+  classifier.addDocument('arrange a meeting. I spoke too soon. How about Tuesday at 3:00 pm?', 'meeting');
+  classifier.addDocument('Invitation.Join video call', 'meeting');
+  classifier.addDocument('Your credit card payment is due. To make a payment, visit Online Banking, or pay directly from your Capital One Mobile App.', 'reminders');
+  classifier.addDocument('Abstract Submission Deadline. This is a quick reminder for the AHFE 2016 International Conference abstract and paper proposal submission extended deadline. The conference will be held at Walt Disney.The extended deadline is approaching quickly, please submit as soon as possible!', 'deadline');
+  classifier.addDocument('You are invited to Ubiquity Dev Summit. We are excited to announce that we are opening registration for the first Ubiquity Dev Summit and would love to have you there as our guest. The event will take place at The Strand Theater in San Francisco, CA on January 11-12, 2016.', 'registration');
+  classifier.addDocument('Career Fair. I would like to invite you to register for the 2016 Carnegie Mellon University Career Fair in Silicon Valley! It is a job and internship fair for Carnegie Mellon University graduate students in tech disciplines seeking full-time or internship opportunities.', 'registration');
+  classifier.addDocument('lets have a conference call to regroup, tomorrow? I can call you earlier let me try 7 or 7:30 our time  = 9 or 9:30 your time', 'meeting');
+  classifier.addDocument('prepare a presentation for the meeting.This workshop is designed to explore the unique challenges being faced.','meeting')
+classifier.addDocument('introduction and meeting. lets debate certain issues and problems, and to take decisions.','meeting');
+//classifier.addDocument(['',''],'');
+classifier.addDocument('Board meeting: The directors have decided to meet','meeting');
+classifier.addDocument('workshop on react. An introductory workshop on react.js will take place at techdojo.Please register by end of the week.','registration');
+classifier.addDocument('programming assignment submission.Submit the programming assignment for the data course by 17th january','deadline');
+
+classifier.addDocument('your credit card has expired. Please recharge the card','reminders');
+classifier.addDocument('credit card date expiration, renew the card','reminders');
+classifier.addDocument('expiry of credit or debit card. Apply for a new card','reminders');
+  classifier.train();
+  classifier.save('./server/classifier.json', function(err, classifier) {
+      // the classifier is saved to the classifier.json file!
+  });
+ console.log(classifier.getClassifications('expired'));
