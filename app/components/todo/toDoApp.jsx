@@ -30,7 +30,8 @@ class TodoApp extends React.Component {
     return (
       <Grid>
         <Row>
-          <Col md={12}>
+          <Col lg={2} md={2} sm={2} xs={2}></Col>
+          <Col className="todoListBody" lg={8} md={8} sm={8} xs={8}>
             <MainSection Alltodos={this.state.todos}/>
           </Col>
         </Row>

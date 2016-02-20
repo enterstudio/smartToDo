@@ -10,7 +10,7 @@ class ToDoItem extends React.Component {
     this._onSave = this._onSave.bind(this);
     this._todoDelete = this._todoDelete.bind(this);
   }
-  
+
   _onSave(value) {
     TodoStore.editTodo(this.props.todo, value);
   }
@@ -25,13 +25,16 @@ class ToDoItem extends React.Component {
     return (
       <Grid>
         <Row>
-          <Col md={12}>
-            <li>
+          <Col lg={1} md={1} sm={1} xs={1}>
+              <Button className="todoBtn" onClick={this._todoDelete}>Delete</Button>
+          </Col>
+          <Col lg={5} md={5} sm={5} xs={5}>
+            <ul>
               {todo.title}
-              <TodoTextInput onSave={this._onSave} value={todo.title}/>
-              <Button onClick={this._todoDelete}>Delete</Button>
-            </li>
-
+            </ul>
+          </Col>
+          <Col lg={1} md={1} sm={1} xs={1}>
+              <Button className="todoBtn" onClick={this._todoDelete}>Delete</Button>
           </Col>
         </Row>
       </Grid>
