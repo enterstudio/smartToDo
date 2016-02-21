@@ -7,27 +7,45 @@ function TodoStore() {
       {
         title: "Meeting with boss",
         complete: false,
-        category: "deadline"
+        category: "deadline",
+        snippet: "Hello Guys Meet With Me",
+        from: "mahfuz.aftab@hotmail.com",
+        mail_date: "11 Jan, 2016"
       }, {
-        title: "appoinment with secretary kjhdbfjhsdafjhksah dfkjhsadfkjhskdfhksjhdfkjshd fkjhsadfkjhsakdfhksadjh kjsbd fkjhsakdjfhb",
+        title: "appoinment with secretary",
         complete: true,
-        category: "reminders"
+        category: "reminders",
+        snippet: "OMG Why dont you Remind Me",
+        from: "Aquibur Rahman Khan",
+        mail_date: "09 Mar, 2016"
       }, {
         title: "bill payment of doc",
         complete: true,
-        category: "meeting"
+        category: "meeting",
+        snippet: "Please Attain the Meeting",
+        from: "mahfuz.aftab@hotmail.com",
+        mail_date: "06 May, 2016"
       }, {
         title: "renew driving license ",
         complete: true,
-        category: "registration"
+        category: "registration",
+        snippet: "Do the registration",
+        from: "Aquibur Rahman Khan",
+        mail_date: "01 Jul, 2016"
       }, {
         title: "register with hacksummit",
         complete: false,
-        category: "deadline"
+        category: "deadline",
+        snippet: "Do the Rregistration Now",
+        from: "mahfuz.aftab@hotmail.com",
+        mail_date: "22 Nov, 2016"
       }, {
         title: "deadline of smartToDo App",
         complete: false,
-        category: "registration"
+        category: "registration",
+        snippet: "Dont miss the Deadline",
+        from: "mahfuz.aftab@hotmail.com",
+        mail_date: "12 Dec, 2016"
       }
     ],
 
@@ -99,7 +117,6 @@ function TodoStore() {
     }).catch((err) => {
         console.log(err);
     });
-
   }
 
   function deleteTodo(todo) {

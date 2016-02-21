@@ -16,6 +16,7 @@ class TodoApp extends React.Component {
     if(this.props.login){
       TodoStore.fetchToDos();
     }
+   this.state = getAllTodos();
     this._onChange = this._onChange.bind(this);
   }
 
@@ -34,7 +35,7 @@ class TodoApp extends React.Component {
       <Grid>
         <Row>
           <Col lg={2} md={2} sm={2} xs={2}></Col>
-          <Col className="listBody" lg={8} md={8} sm={8} xs={8}>
+          <Col className="listBody" lg={10} md={10} sm={10} xs={10}>
             <MainSection Alltodos={this.state.todos}/>
             <Footer Alltodos={this.state.todos}/>
           </Col>
