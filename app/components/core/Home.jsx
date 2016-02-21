@@ -10,12 +10,25 @@ class Home extends React.Component {
     super(props, context);
     this.state = {};
     this.state.loggedIn = !!((typeof window !== "undefined") ? localStorage.user : undefined);
+    this._onChange = this._onChange.bind( this );
   }
   authGmail(e) {
     e.preventDefault();
     console.log('test');
     UserStore.signup();
   }
+
+  componentWillMount() {
+      UserStore.onChange(this._onChange);
+    }
+    componentWillUnmount() {
+      UserStore.removeChangeListener(this._onChange);
+    }
+    _onChange() {
+      //route to home
+      var loggedIn = !!((typeof window !== "undefined") ? localStorage.user : undefined);
+      this.setState({loggedIn: loggedIn});
+    }
   render(){
 
     return (

@@ -31,6 +31,11 @@ function UserStore() {
           });
   }
 
+  function signout(){
+    localStorage.removeItem('user');
+    triggerListeners();
+  }
+
   function getUser() {
     return user;
   }
@@ -48,6 +53,7 @@ function UserStore() {
     fetchUser: fetchUser,
     getUser: getUser,
     signup: signup,
+    signout: signout,
     removeChangeListener: removeChangeListener,
     onChange: onChange
   }

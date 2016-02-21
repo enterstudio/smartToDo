@@ -56,23 +56,33 @@ exports.gmailToken = function(req, res){
 						 if(user == null){
 							 console.log('new');
 							 user = new User({ email: response.emailAddress, messagesTotal: response.messagesTotal, threadsTotal: response.threadsTotal, historyId: response.historyId, token: tokens });
+							 user.save(function(err,data){
+								 if (err) {
+										return res.status(400).send({
+											message: errorHandler.getErrorMessage(err)
+										});
+									} else {
+										//fetch emails, decode, send array to frontend
+										getFirstEmails(oauth2Client, res, user);
+									}
+							 });
+
 						 }else{
-							 console.log('old');
 							 user.messagesTotal = response.messagesTotal;
 							 user.threadsTotal = response.threadsTotal;
 							 user.historyId = response.historyId;
-						 }
-						 user.save(function(err,data){
-							 if (err) {
-						 			return res.status(400).send({
-						 				message: errorHandler.getErrorMessage(err)
-						 			});
-						 		} else {
-									//fetch emails, decode, send array to frontend
-									getFirstEmails(oauth2Client, res, data);
+							 user.save(function(err,data){
+								 if (err) {
+							 			return res.status(400).send({
+							 				message: errorHandler.getErrorMessage(err)
+							 			});
+							 		} else {
 
-								}
-						 });
+										res.json(data);
+									}
+							 });
+						 }
+
 					 }
 				 });
 			 });
