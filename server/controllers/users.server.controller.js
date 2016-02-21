@@ -171,7 +171,7 @@ function saveToDo(email){
 					message: "Save Not successful"
 				});
 		} else {
-			console.log(data);
+			//console.log(data);
 		}
 	});
 }

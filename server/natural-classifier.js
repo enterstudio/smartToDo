@@ -105,7 +105,20 @@ module.exports = function(){
   classifier.addDocument('Get back to home with john', 'reminders');
 
   classifier.addDocument('Call Sam after dinner', 'reminders');
-
+  classifier.addDocument('hello! how are you?','uncategorised');
+classifier.addDocument('The car was broken so I could not come','uncategorised');
+classifier.addDocument('school was closed yesterday','uncategorised');
+classifier.addDocument('A prize has been awarded to Beatrice and Mr Jones also won.','uncategorised');
+classifier.addDocument('trailing in fifth place in South Carolina, with just eight percent of the vote','uncategorised');
+classifier.addDocument('The importance of small business to our community intersects with memories of how business ownership impacted my childhood','uncategorised');
+classifier.addDocument('It takes high marks in areas such as financial strength, people management and innovation.','uncategorised');
+classifier.addDocument('its an excuse to go out armed with business cards, pay for bottle service, and probably still go home ','uncategorised');
+classifier.addDocument('I’ve got the upper hand right now, at least when it comes to jogging','uncategorised');
+classifier.addDocument('we have reached the grand finale','uncategorised');
+classifier.addDocument('please add me to your LinkedIn network. I would like to join your LinkedIn network.','uncategorised');
+classifier.addDocument('is now following you on Twitter! You have a new follower on Twitter.','uncategorised');
+classifier.addDocument('An awe-inspiring story! This week the internet is a-buzz with this very heart-breaking yet awe-inspiring story.','uncategorised');
+classifier.addDocument('Latest updates from your friends. Check out what your friends have been up to recently.','uncategorised');
 
   classifier.train();
    console.log(classifier.getClassifications('expired'));
