@@ -16,6 +16,7 @@ function UserStore() {
       user = data;
       console.log(data);
       //save logged in user details to localStorage
+      localStorage.user = JSON.stringify(data);
       triggerListeners();
     });
   }

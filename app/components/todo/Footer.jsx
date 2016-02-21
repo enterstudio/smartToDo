@@ -45,9 +45,10 @@ class Footer extends React.Component {
           </strong>
           {itemsLeftPhrase}
         </span>
-        <Button onClick={this._clearCompleted}>Clear Completed</Button>
+
       </div>
     )
   }
 }
 export default Footer;
+/*<Button onClick={this._clearCompleted}>Clear Completed</Button>*/

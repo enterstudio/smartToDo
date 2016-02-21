@@ -7,11 +7,8 @@ module.exports = function(app){
 
   app.route('/todos/api/todos/:id')
 	.get(todos.read)
+  .put(todos.update)
   .delete(todos.delete);
-
-	app.route('/todos/edit/api/todos/:id')
-	.get(todos.read)
-	.put(todos.update);
 
   app.param('id', todos.todoByID);
 

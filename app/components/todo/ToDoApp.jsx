@@ -9,10 +9,13 @@ function getAllTodos() {
 }
 
 class TodoApp extends React.Component {
-  constructor() {
-    super();
+  constructor(props, context) {
+    super(props, context);
     this.state = {};
     this.state.todos = [];
+    if(this.props.login){
+      TodoStore.fetchToDos();
+    }
     this.state = getAllTodos();
     this._onChange = this._onChange.bind(this);
   }

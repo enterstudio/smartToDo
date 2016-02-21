@@ -139,7 +139,10 @@ function getFirstEmails(auth, res, user){
 					console.log(email.subject);
 				});
 			 }
-			 					res.json(user);
+			 			setTimeout(function(){
+							res.json(user);
+						}, 3000);
+
 		 }
 	});
 }

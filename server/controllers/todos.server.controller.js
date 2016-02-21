@@ -40,7 +40,7 @@ module.exports.read = function(req, res) {
 
 
 exports.delete = function(req, res) {
-	var todo = req.todo;
+	var todo = req.todoByID;
 	todo.remove(function(err) {
 		if (err) {
 			return res.status(400).send();
@@ -52,7 +52,7 @@ exports.delete = function(req, res) {
 
 
 module.exports.update = function(req, res) {
-  var todo = req.todo;
+  var todo = req.todoByID;
 
   	todo = _.extend(todo, req.body);
 

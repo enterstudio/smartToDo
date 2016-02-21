@@ -1,4 +1,5 @@
 "use strict";
+let {get, post, del, put} = require("./RestAPI_Helper.js");
 
 function TodoStore() {
 
@@ -32,6 +33,14 @@ function TodoStore() {
 
     changeListeners = [];
 
+    function fetchToDos() {
+      var user = (typeof window !== "undefined") ? JSON.parse(localStorage.user) : undefined;
+      get("/api/todos/"+user._id).then((data) => {
+        todos = data;
+        console.log(data);
+        triggerListeners();
+      });
+    }
   function getAllTodos() {
     return todos;
   }
@@ -60,18 +69,35 @@ function TodoStore() {
       todos[index].complete = true;
       triggerListeners();
     }
+    put(`/todos/api/todos/${todos[index]._id}`, todos[index]).then((data) => {
+      todos[index] = data;
+      triggerListeners();
+    }).catch((err) => {
+        console.log(err);
+    });
   }
 
   function editTodo(todo, value) {
     var index = todos.indexOf(todo);
     todos[index].title = value;
     triggerListeners();
+    put(`/todos/api/todos/${todos[index]._id}`, todos[index]).then((data) => {
+      todos[index] = data;
+      triggerListeners();
+    }).catch((err) => {
+        console.log(err);
+    });
   }
 
   function deleteTodo(todo) {
     var index = todos.indexOf(todo);
     todos.splice(index, 1);
     triggerListeners();
+    del(`/todos/api/todos/${todo._id}`).then((data) => {
+      console.log('deleted');
+    }).catch((err) => {
+      console.log(err);
+    });
   }
 
   function onChange(listener) {
@@ -85,6 +111,7 @@ function TodoStore() {
 
   return {
     onChange: onChange,
+    fetchToDos: fetchToDos,
     getAllTodos: getAllTodos,
     toggleComplete: toggleComplete,
     clearCompleted: clearCompleted,

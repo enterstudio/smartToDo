@@ -17,7 +17,7 @@ class MainSection extends React.Component {
 
             {Alltodos.map((todo) => {
               return (
-                <h4 key={todo.title}> <TodoItem todo={todo}/> </h4>
+                <h4 key={todo._id}> <TodoItem todo={todo}/> </h4>
               )
             })}
           </Col>
