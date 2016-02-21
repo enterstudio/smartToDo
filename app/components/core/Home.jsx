@@ -32,7 +32,7 @@ class Home extends React.Component {
   render(){
 
     return (
-      <Grid>
+      <Grid fluid={true}>
         <Row>
           <Col lg={12} md={12} sm={12} xs={12}>
             {!this.state.loggedIn && <Jumbotron>

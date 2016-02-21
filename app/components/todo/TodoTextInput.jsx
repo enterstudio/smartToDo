@@ -17,7 +17,8 @@ class TodoTextInput extends React.Component {
    }
 
 
-  _save() {
+  _save(e) {
+    console.log(e);
     this.props.onSave(this.state.value);
     this.setState({value: ''});
   }
@@ -29,7 +30,9 @@ class TodoTextInput extends React.Component {
 
   render() {
     return (
-      <input autoFocus className="textInput" value={this.state.value} onKeyDown={this._onKeyDown} onChange={this._onChange} onBlur={this._save} />
+      <span>
+        <input autoFocus className="textInput" value={this.state.value} onKeyDown={this._onKeyDown} onChange={this._onChange} onBlur={this._save} />
+      </span>
     )
   }
 }

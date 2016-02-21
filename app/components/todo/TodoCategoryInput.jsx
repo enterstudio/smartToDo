@@ -43,6 +43,10 @@ _onSelect(evt,eventKey){
       this.setState({category: "Reminders"});
       this.props.editCategory("reminders");
   }
+  else if (eventKey==5){
+      this.setState({category: "Uncategorised"});
+      this.props.editCategory("uncategorised");
+  }
 }
 
   _save() {
@@ -63,6 +67,7 @@ _onSelect(evt,eventKey){
        <MenuItem eventKey="2">Meeting</MenuItem>
        <MenuItem eventKey="3" >Registration</MenuItem>
       <MenuItem eventKey="4" >Reminders</MenuItem>
+      <MenuItem eventKey="5" >Uncategorised</MenuItem>
      </DropdownButton>
     )
   }

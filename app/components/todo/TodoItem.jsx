@@ -42,6 +42,10 @@ toggleComplete(){
 
   render() {
     var todo = this.props.todo;
+    var d = new Date(todo.mail_date);
+    var date = d.toLocaleDateString();
+    var from = todo.from.split("<")[0];
+    var snippet = todo.snippet.substring(0, 100);
     var input, category;
   if (this.state.isEditing){
      input = <TodoTextInput onSave={this._onSave} value={todo.title}/>;
@@ -50,30 +54,24 @@ toggleComplete(){
      category = <TodoCategoryInput editCategory= {this._editCategory} category={todo.category}/>;
   }
     return (
-      <Grid>
+      <div className="todoItem">
         <Row>
-          <Col lg={1} md={1} sm={1} xs={1}>
-              <input onChange={this.toggleComplete} checked={todo.complete} type="checkbox"/>
-          </Col>
-          <Col lg={5} md={5} sm={5} xs={5}>
-            <ul>
-              <label className={this.state.isEditing ? 'hidden' : 'shown'} onDoubleClick={this._onDoubleClick}>
-                {todo.title}<br/>
-                <small>{todo.from}</small>  <small>{todo.mail_date}</small><br></br>
-                <small>{todo.snippet}</small>
+          <Col lg={12} md={12} sm={12} xs={12}>
+            <input onChange={this.toggleComplete} checked={todo.complete} type="checkbox" className="check"/>
+              <label className={this.state.isEditing ? 'hidden' : 'label-shown'} onDoubleClick={this._onDoubleClick}>
+                {todo.title} <small className="double-inst">Double click to edit</small>
+              <div className="mail-info"><small><strong>{from}</strong> <i>sent on</i> {date}</small><hr/>
+                <small>{snippet} ...</small></div>
               </label>
               {input}
 
-
-            </ul>
-          </Col>
-
-          <Col lg={1} md={1} sm={1} xs={1}>
               <Button className={this.state.isCategoryEditing ? 'hidden' : 'deleteBtn'} onClick={this._todoDelete}/>
               {category}
+
           </Col>
+
         </Row>
-      </Grid>
+      </div>
     )
   }
 }

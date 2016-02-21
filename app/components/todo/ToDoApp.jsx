@@ -32,15 +32,11 @@ class TodoApp extends React.Component {
 
   render() {
     return (
-      <Grid>
-        <Row>
-          <Col lg={2} md={2} sm={2} xs={2}></Col>
-          <Col className="listBody" lg={10} md={10} sm={10} xs={10}>
+      <div>
+        <Footer Alltodos={this.state.todos}/>
             <MainSection Alltodos={this.state.todos}/>
-            <Footer Alltodos={this.state.todos}/>
-          </Col>
-        </Row>
-      </Grid>
+
+      </div>
     )
   }
 }
