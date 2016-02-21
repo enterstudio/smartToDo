@@ -20,6 +20,11 @@ class Home extends React.Component {
       <Grid>
         <Row>
           <Col lg={12} md={12} sm={12} xs={12}>
+            <Jumbotron>
+            <p>
+              <Button bsSize="large" bsStyle="danger" onClick={this.authGmail}>Sign In with Gmail</Button>
+            </p>
+            </Jumbotron>
 
           <TodoApp/>
         </Col>
