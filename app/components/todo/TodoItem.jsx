@@ -36,7 +36,7 @@ toggleComplete(){
     var input;
   if (this.state.isEditing){
     console.log("dsf");
-     input = <TodoTextInput focus={this.state.isEditing} onSave={this._onSave} value={todo.title}/>;
+     input = <TodoTextInput onSave={this._onSave} value={todo.title}/>;
 
   }
     return (
