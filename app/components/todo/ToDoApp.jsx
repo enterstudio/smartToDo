@@ -2,6 +2,7 @@ import React from 'react';
 import {Grid, Row, Col} from 'react-bootstrap';
 import MainSection from "./MainSection.jsx";
 import TodoStore from "../../stores/TodoStore.jsx";
+import Footer from "./Footer.jsx";
 
 function getAllTodos() {
   return {todos: TodoStore.getAllTodos()}
@@ -33,6 +34,7 @@ class TodoApp extends React.Component {
           <Col lg={2} md={2} sm={2} xs={2}></Col>
           <Col className="listBody" lg={8} md={8} sm={8} xs={8}>
             <MainSection Alltodos={this.state.todos}/>
+            <Footer Alltodos={this.state.todos}/>
           </Col>
         </Row>
       </Grid>

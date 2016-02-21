@@ -18,7 +18,6 @@ class TodoTextInput extends React.Component {
 
 
   _save() {
-    console.log("asda");
     this.props.onSave(this.state.value);
     this.setState({value: ''});
   }
@@ -30,7 +29,7 @@ class TodoTextInput extends React.Component {
 
   render() {
     return (
-      <input className="textInput" value={this.state.value} onKeyDown={this._onKeyDown} onChange={this._onChange} onBlur={this._save} autofocus={this.props.focus}/>
+      <input autoFocus className="textInput" value={this.state.value} onKeyDown={this._onKeyDown} onChange={this._onChange} onBlur={this._save} />
     )
   }
 }

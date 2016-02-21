@@ -1,40 +1,40 @@
 "use strict";
 
-function TaskStore() {
+function TodoStore() {
 
   let todos = [
-    {
-      title: "Meeting with boss",
-      complete: false,
-      category: "Deadline"
-    }, {
-      title: "appoinment with secretary kjhdbfjhsdafjhksah dfkjhsadfkjhskdfhksjhdfkjshd fkjhsadfkjhsakdfhksadjh kjsbd fkjhsakdjfhb",
-      complete: true,
-      category: "Reminder"
-    }, {
-      title: "bill payment of doc",
-      complete: true,
-      category: "Meeting"
-    }, {
-      title: "renew driving license ",
-      complete: true,
-      category: "Register"
-    }, {
-      title: "register with hacksummit",
-      complete: false,
-      category: "Deadline"
-    }, {
-      title: "deadline of smartToDo App",
-      complete: false,
-      category: "Register"
-    }
-  ],
+      {
+        title: "Meeting with boss",
+        complete: false,
+        category: "Deadline"
+      }, {
+        title: "appoinment with secretary kjhdbfjhsdafjhksah dfkjhsadfkjhskdfhksjhdfkjshd fkjhsadfkjhsakdfhksadjh kjsbd fkjhsakdjfhb",
+        complete: true,
+        category: "Reminder"
+      }, {
+        title: "bill payment of doc",
+        complete: true,
+        category: "Meeting"
+      }, {
+        title: "renew driving license ",
+        complete: true,
+        category: "Register"
+      }, {
+        title: "register with hacksummit",
+        complete: false,
+        category: "Deadline"
+      }, {
+        title: "deadline of smartToDo App",
+        complete: false,
+        category: "Register"
+      }
+    ],
+
     changeListeners = [];
 
-
-function getAllTodos(){
-  return todos;
-}
+  function getAllTodos() {
+    return todos;
+  }
 
   function triggerListeners() {
     changeListeners.forEach(function(listener) {
@@ -42,30 +42,37 @@ function getAllTodos(){
     })
   };
 
-function toggleComplete(todo){
-var index = todos.indexOf(todo);
-if(todos[index].complete == true ){
-  todos[index].complete = false;
-  triggerListeners();
-}
-else{
-  todos[index].complete = true;
-  triggerListeners();
-}
-}
+  function clearCompleted(todo) {
+    for (var i = todos.length - 1; i >= 0; i--) {
+      if (todos[i].complete) {
+        todos.splice(i, 1);
+      }
+    }
+    triggerListeners();
+  }
+
+  function toggleComplete(todo) {
+    var index = todos.indexOf(todo);
+    if (todos[index].complete == true) {
+      todos[index].complete = false;
+      triggerListeners();
+    } else {
+      todos[index].complete = true;
+      triggerListeners();
+    }
+  }
 
   function editTodo(todo, value) {
     var index = todos.indexOf(todo);
-      todos[index].title = value;
-      triggerListeners();
+    todos[index].title = value;
+    triggerListeners();
   }
 
   function deleteTodo(todo) {
     var index = todos.indexOf(todo);
-      todos.splice(index,1);
-      triggerListeners();
+    todos.splice(index, 1);
+    triggerListeners();
   }
-
 
   function onChange(listener) {
     changeListeners.push(listener);
@@ -76,15 +83,15 @@ else{
     changeListeners.splice(index, 1);
   }
 
-
   return {
     onChange: onChange,
     getAllTodos: getAllTodos,
     toggleComplete: toggleComplete,
+    clearCompleted: clearCompleted,
     removeChangeListener: removeChangeListener,
     editTodo: editTodo,
     deleteTodo: deleteTodo
   }
 }
 
-module.exports = new TaskStore();
+module.exports = new TodoStore();
