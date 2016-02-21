@@ -7,27 +7,27 @@ function TodoStore() {
       {
         title: "Meeting with boss",
         complete: false,
-        category: "Deadline"
+        category: "deadline"
       }, {
         title: "appoinment with secretary kjhdbfjhsdafjhksah dfkjhsadfkjhskdfhksjhdfkjshd fkjhsadfkjhsakdfhksadjh kjsbd fkjhsakdjfhb",
         complete: true,
-        category: "Reminder"
+        category: "reminders"
       }, {
         title: "bill payment of doc",
         complete: true,
-        category: "Meeting"
+        category: "meeting"
       }, {
         title: "renew driving license ",
         complete: true,
-        category: "Register"
+        category: "registration"
       }, {
         title: "register with hacksummit",
         complete: false,
-        category: "Deadline"
+        category: "deadline"
       }, {
         title: "deadline of smartToDo App",
         complete: false,
-        category: "Register"
+        category: "registration"
       }
     ],
 
@@ -89,6 +89,13 @@ function TodoStore() {
     });
   }
 
+  function editTodoCategory(todo, value) {
+    var index = todos.indexOf(todo);
+    todos[index].category = value;
+    triggerListeners();
+
+  }
+
   function deleteTodo(todo) {
     var index = todos.indexOf(todo);
     todos.splice(index, 1);
@@ -111,6 +118,7 @@ function TodoStore() {
 
   return {
     onChange: onChange,
+    editTodoCategory:editTodoCategory,
     fetchToDos: fetchToDos,
     getAllTodos: getAllTodos,
     toggleComplete: toggleComplete,
