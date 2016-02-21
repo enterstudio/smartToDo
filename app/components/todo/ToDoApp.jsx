@@ -16,7 +16,6 @@ class TodoApp extends React.Component {
     if(this.props.login){
       TodoStore.fetchToDos();
     }
-    this.state = getAllTodos();
     this._onChange = this._onChange.bind(this);
   }
 
