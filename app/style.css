@@ -24,6 +24,19 @@ body{
 .intro p small{
 	    color: #979797;
 }
+.preview{
+	max-width: 100%
+}
+.details{
+	margin-top: 0px;
+margin-bottom: 5px;
+    font-weight: 200;
+}
+.howitworks{
+	padding: 30px;
+	font-size: 1.1em;
+	line-height: 25px;
+}
 .listBody {
 	font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	line-height: 1.4em;
