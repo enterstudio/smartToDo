@@ -5,22 +5,28 @@ function TaskStore() {
   let todos = [
     {
       title: "Meeting with boss",
-      complete: false
+      complete: false,
+      category: "Deadline"
     }, {
-      title: "appoinment with secretary",
-      complete: false
+      title: "appoinment with secretary kjhdbfjhsdafjhksah dfkjhsadfkjhskdfhksjhdfkjshd fkjhsadfkjhsakdfhksadjh kjsbd fkjhsakdjfhb",
+      complete: true,
+      category: "Reminder"
     }, {
       title: "bill payment of doc",
-      complete: false
+      complete: true,
+      category: "Meeting"
     }, {
       title: "renew driving license ",
-      complete: false
+      complete: true,
+      category: "Register"
     }, {
       title: "register with hacksummit",
-      complete: false
+      complete: false,
+      category: "Deadline"
     }, {
       title: "deadline of smartToDo App",
-      complete: false
+      complete: false,
+      category: "Register"
     }
   ],
     changeListeners = [];
@@ -36,6 +42,17 @@ function getAllTodos(){
     })
   };
 
+function toggleComplete(todo){
+var index = todos.indexOf(todo);
+if(todos[index].complete == true ){
+  todos[index].complete = false;
+  triggerListeners();
+}
+else{
+  todos[index].complete = true;
+  triggerListeners();
+}
+}
 
   function editTodo(todo, value) {
     var index = todos.indexOf(todo);
@@ -63,6 +80,7 @@ function getAllTodos(){
   return {
     onChange: onChange,
     getAllTodos: getAllTodos,
+    toggleComplete: toggleComplete,
     removeChangeListener: removeChangeListener,
     editTodo: editTodo,
     deleteTodo: deleteTodo

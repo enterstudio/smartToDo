@@ -50,7 +50,7 @@ gulp.watch('app/*.*',['temp']);
 
 gulp.task('serve', ['live-server','bundle','temp','observe-all'], function() {
 	browserSync.init(null, {
-		proxy: "http://localhost",
+		proxy: "http://localhost:3000",
 		port: 9001
 	});
 });

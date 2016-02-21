@@ -6,7 +6,7 @@ var path = require('path');
 module.exports = function (db){
 var app = new express();
 
-app.set('port', (process.env.PORT || 80));
+app.set('port', (process.env.PORT || 3000));
 
 app.use('/static', express.static(path.join(__dirname, '/../tmp'), { maxAge: 86400000 }));
 

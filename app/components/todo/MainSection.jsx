@@ -13,11 +13,11 @@ class MainSection extends React.Component {
     return (
       <Grid>
         <Row>
-          <Col md={12}>
+          <Col lg={8} md={8} sm={8} xs={8}>
+
             {Alltodos.map((todo) => {
               return (
-                <h1 key={todo.title}><TodoItem todo={todo}/>
-                </h1>
+                <h4 key={todo.title}> <TodoItem todo={todo}/> </h4>
               )
             })}
           </Col>
