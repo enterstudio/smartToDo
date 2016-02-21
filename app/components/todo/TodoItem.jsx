@@ -19,12 +19,12 @@ class ToDoItem extends React.Component {
 
   _editCategory(value){
    TodoStore.editTodoCategory(this.props.todo, value);
-   this.setState({isCategoryEditing: false});
+   //this.setState({isCategoryEditing: false});
   }
 
   _onDoubleClick() {
     this.setState({isEditing: true});
-    this.setState({isCategoryEditing: true});
+    //this.setState({isCategoryEditing: true});
   }
 
   _onSave(value) {
@@ -50,9 +50,8 @@ toggleComplete(){
   if (this.state.isEditing){
      input = <TodoTextInput onSave={this._onSave} value={todo.title}/>;
   }
-  if (this.state.isCategoryEditing){
      category = <TodoCategoryInput editCategory= {this._editCategory} category={todo.category}/>;
-  }
+
     return (
       <div className="todoItem">
         <Row>
@@ -64,9 +63,13 @@ toggleComplete(){
                 <small>{snippet} ...</small></div>
               </label>
               {input}
-
-              <Button className={this.state.isCategoryEditing ? 'hidden' : 'deleteBtn'} onClick={this._todoDelete}/>
+              <div className={this.state.isEditing ? 'hidden' : 'rightBtns'}>
               {category}
+              <Button className='deleteBtn' onClick={this._todoDelete}/>
+              </div>
+              <div className={this.state.isEditing ? 'shown' : 'hidden'}>
+                <small>Click outside or press enter to save</small>
+              </div>
 
           </Col>
 
