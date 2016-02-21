@@ -58,9 +58,12 @@ toggleComplete(){
           <Col lg={5} md={5} sm={5} xs={5}>
             <ul>
               <label className={this.state.isEditing ? 'hidden' : 'shown'} onDoubleClick={this._onDoubleClick}>
-                {todo.title}
+                {todo.title}<br/>
+                <small>{todo.from}</small>  <small>{todo.mail_date}</small><br></br>
+                <small>{todo.snippet}</small>
               </label>
               {input}
+
 
             </ul>
           </Col>
