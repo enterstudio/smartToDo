@@ -32,7 +32,7 @@ class TodoApp extends React.Component {
 
   render() {
     return (
-      <div>
+      <div >
         <Footer Alltodos={this.state.todos}/>
             <MainSection Alltodos={this.state.todos}/>
 

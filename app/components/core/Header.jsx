@@ -49,7 +49,7 @@ class Header extends React.Component {
         onToggle={this.collapse}>
         <Navbar.Header>
           <Navbar.Brand>
-            <Link to="/">SmartToDo</Link>
+            <Link to="/"><img src="static/images/logo.png"/> <span className="brand_logo">smart<span className="todo">TODO</span></span></Link>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
@@ -59,7 +59,7 @@ class Header extends React.Component {
                    Welcome, Stranger!
                 </MenuItem>}
                 {this.state.user && <MenuItem onClick={this.signout}>
-                Welcome, {this.state.user.email}. SignOut?
+                Welcome, {this.state.user.email}. <span className="signOut">Sign Out?</span>
                 </MenuItem>}
           </Nav>
         </Navbar.Collapse>

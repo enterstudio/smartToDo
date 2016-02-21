@@ -38,19 +38,19 @@ class Footer extends React.Component {
     }
 
     var itemsLeft = total - completed;
-    var itemsLeftPhrase = ' Incomplete';
+    var itemsLeftPhrase = ' incomplete';
     itemsLeftPhrase += itemsLeft === 1
-      ? ' ToDo '
-      : ' ToDos ';
+      ? ' TODO '
+      : ' TODOs ';
 
     return (
       <div>
         <Col lg={12} md={12} sm={12} xs={12}>
         <div className="leftPhrase">
-          <strong>
-            {itemsLeft}
-          </strong>
-          {itemsLeftPhrase} | <span className="point" onClick={this._toggleUncategorised}>{this.state.uncategorised? 'Hide' : 'View'} Uncategorised ToDos</span> | <span className="point">Fetch Latest Emails</span>
+          <span className="incomplete">
+            <span className="num">{itemsLeft}</span>
+
+          {itemsLeftPhrase}</span> | <span className="point" onClick={this._toggleUncategorised}>{this.state.uncategorised? 'Hide' : 'View'} Uncategorised TODOs</span>
         </div>
       </Col>
       {this.state.uncategorised &&

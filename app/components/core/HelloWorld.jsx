@@ -7,7 +7,7 @@ class HelloWorld extends React.Component {
     this.history = props.history;
     console.log(props);
     if(props.location.query)
-      UserStore.fetchUser(props.location.query.code);
+     UserStore.fetchUser(props.location.query.code);
     this._onChange = this._onChange.bind( this );
   }
   componentWillMount() {
@@ -24,8 +24,9 @@ class HelloWorld extends React.Component {
   render(){
 
     return (
-      <div>
-        <h1>Loading ...</h1>
+      <div className="loadingPage">
+        <i className="fa fa-spinner fa-pulse"/>
+        <h2>sprinkling magic dust on your emails</h2>
       </div>
 
       )

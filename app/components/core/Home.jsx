@@ -32,12 +32,15 @@ class Home extends React.Component {
   render(){
 
     return (
-      <Grid fluid={true}>
+      <Grid fluid={true} className="pageBottom">
         <Row>
           <Col lg={12} md={12} sm={12} xs={12}>
-            {!this.state.loggedIn && <Jumbotron>
+            {!this.state.loggedIn && <Jumbotron className="intro">
+              <p>Take back your time! Deal with emails efficiently, like never before.</p>
+              <img src="static/images/intro.png"/>
             <p>
-              <Button bsSize="large" bsStyle="danger" onClick={this.authGmail}>Sign In with Gmail</Button>
+              <Button bsSize="large" bsStyle="danger" onClick={this.authGmail}>Sign In with Gmail</Button><br/>
+              <small>Try the demo now!</small>
             </p>
           </Jumbotron>}
 
