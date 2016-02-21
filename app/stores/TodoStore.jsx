@@ -93,6 +93,12 @@ function TodoStore() {
     var index = todos.indexOf(todo);
     todos[index].category = value;
     triggerListeners();
+    put(`/todos/api/todos/${todos[index]._id}`, todos[index]).then((data) => {
+      todos[index] = data;
+      triggerListeners();
+    }).catch((err) => {
+        console.log(err);
+    });
 
   }
 
