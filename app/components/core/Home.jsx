@@ -65,7 +65,7 @@ class Home extends React.Component {
                   <li>Converts categorized emails into TODO items, which the user can edit, delete and mark as completed</li>
                 </ul>
                 <p>This app has been built for the <a href="https://www.koding.com/Hackathon" target="_blank">hack.summit() Virtual Hackathon 2016</a>. </p>
-<p>For the <strong>demo with sample emails</strong>, 12 emails are read from <a href="" target="_blank">this sample JSON</a> for a dummy user.</p>
+<p>For the <strong>demo with sample emails</strong>, 12 emails are read from <a href="https://raw.githubusercontent.com/tech-dojo/smartToDo/master/server/sampleEmails.js" target="_blank">this sample JSON</a> for a dummy user.</p>
 <p>For the <strong>demo with Gmail signin</strong>, 20 emails are fetched only once when a user logs in with their Gmail for the first time. No subsequent fetch calls are made if the user logs out and logs in again.</p> <p>The TODO data is persisted throughout each server session, and resets if the server is restarted.
 </p>
 <p><em>Disclaimer</em>: The sample size of training data is small given the time constraints, hence high accuracy in email classification is not guaranteed.</p>
