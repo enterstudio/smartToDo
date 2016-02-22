@@ -16,7 +16,7 @@ class MainSection extends React.Component {
     reminders = 0;
     return (
 <div>
-          <Col lg={6} md={6} sm={6} xs={6}>
+          <Col lg={6} md={6} sm={12} xs={12}>
             <Panel header="Meetings" bsStyle="primary">
             {Alltodos.map((todo, i) => {
               meetings = (todo.category == "meeting")? meetings+1: meetings;
@@ -29,7 +29,7 @@ class MainSection extends React.Component {
             })}
           </Panel>
             </Col>
-            <Col lg={6} md={6} sm={6} xs={6}>
+            <Col lg={6} md={6} sm={12} xs={12}>
           <Panel header="Registrations / RSVP" bsStyle="success">
             {Alltodos.map((todo, i) => {
               registrations = (todo.category == "registration")? registrations+1: registrations;
@@ -43,7 +43,7 @@ class MainSection extends React.Component {
             </Panel>
               </Col>
 
-              <Col lg={6} md={6} sm={6} xs={6}>
+              <Col lg={6} md={6} sm={12} xs={12}>
             <Panel header="Deadlines" bsStyle="warning">
               {Alltodos.map((todo, i) => {
                 deadlines = (todo.category == "deadline")? deadlines+1: deadlines;
@@ -57,7 +57,7 @@ class MainSection extends React.Component {
             </Panel>
 
           </Col>
-          <Col lg={6} md={6} sm={6} xs={6}>
+          <Col lg={6} md={6} sm={12} xs={12}>
         <Panel header="Reminders" bsStyle="info">
         {Alltodos.map((todo, i) => {
           reminders = (todo.category == "reminders")? reminders+1: reminders;

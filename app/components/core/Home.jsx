@@ -44,12 +44,12 @@ class Home extends React.Component {
             </p>
           </Jumbotron>
 
-            <Col lg={6} md={6} sm={6} xs={6}>
+            <Col lg={6} md={6} sm={5} xs={12}>
               <h2 className="details">Preview</h2>
               <hr/>
               <img className="preview" src="static/images/preview.png"/>
             </Col>
-            <Col lg={6} md={6} sm={6} xs={6}>
+            <Col lg={6} md={6} sm={7} xs={12}>
               <h2 className="details">How it works</h2>
 
               <hr/>

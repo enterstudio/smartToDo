@@ -25,7 +25,8 @@ body{
 	    color: #979797;
 }
 .preview{
-	max-width: 100%
+	max-width: 100%;
+	margin-bottom:20px;
 }
 .details{
 	margin-top: 0px;
@@ -50,7 +51,7 @@ margin-bottom: 5px;
 }
 .mail-info{
 	width: 76%;
-	margin-left: 90px;
+	margin-left: 65px;
 	margin-bottom: 10px;
 }
 .point{
@@ -175,7 +176,7 @@ border:none;
 
 input[type=checkbox]{
 	float:left;
-	margin: 5px 30px 20px 20px;
+	    margin: 5px 15px 20px 10px;
 	/* Double-sized Checkboxes */
 /*-ms-transform: scale(1.5);*/
 /*-moz-transform: scale(1.5); */
@@ -291,7 +292,7 @@ font-size: 1.2em;
 }
 .team{
 	color: #93E8C6;
-	font-size: 1.2em;
+	font-size: 1.1em;
 	font-weight: 100;
 	margin-left: 5px;
 }
