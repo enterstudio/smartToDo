@@ -12,6 +12,10 @@ module.exports = function(){
   classifier.addDocument('register for an event. Registration Regulation: For poster presentation at the Conference and inclusion of the poster extended abstract in the Proceedings, at least one registration per poster is required by 8 April 2016.', 'registration');
 
   classifier.addDocument('arrange a meeting. I spoke too soon. How about Tuesday at 3:00 pm?', 'meeting');
+  classifier.addDocument('Gerry invites to join the call. Gerry would like you join this call, plase follow this link', 'meeting');
+  classifier.addDocument('Updates. Need to get you up to speed, lets arrange a meet for March', 'meeting');
+  classifier.addDocument('Accountant on Friday afternoon. Arranged our meeting with the account at his office in the afternoon', 'meeting');
+  classifier.addDocument('Chat over coffee? Hey, we have a lot to catch up on! Shall we put coffee and chat on the calendar?', 'meeting');
   classifier.addDocument('Invitation.Join video call', 'meeting');
   classifier.addDocument('Your credit card payment is due. To make a payment, visit Online Banking, or pay directly from your Capital One Mobile App.', 'reminders');
   classifier.addDocument('Abstract Submission Deadline. This is a quick reminder for the AHFE 2016 International Conference abstract and paper proposal submission extended deadline. The conference will be held at Walt Disney.The extended deadline is approaching quickly, please submit as soon as possible!', 'deadline');
@@ -22,15 +26,19 @@ module.exports = function(){
   classifier.addDocument('introduction and meeting. lets debate certain issues and problems, and to take decisions.', 'meeting');
   //classifier.addDocument(['',''],'');
   classifier.addDocument('Board meeting: The directors have decided to meet', 'meeting');
+  classifier.addDocument('Carl invites you to join the call.', 'meeting');
+  classifier.addDocument('Lets reschedule for another day', 'meeting');
   classifier.addDocument('workshop on react. An introductory workshop on react.js will take place at techdojo.Please register by end of the week.', 'registration');
-  classifier.addDocument('programming assignment submission.Submit the programming assignment for the data course by 17th january', 'deadline');
+  classifier.addDocument('programming assignment submission deadline.Submit the programming assignment for the data course by 17th january', 'deadline');
+  classifier.addDocument('Deadline for scholarships approaching Apply by Oct 25th for scholarship consideration & receive priority access to our most popular campuses and electives', 'deadline');
+  classifier.addDocument('Submission Deadline Extension (Oct 22): AAAI Spring Symposium Please consider joining us! Submission deadline: October 22 ****If you intend to submit a paper, please fill out this google form by October 15: **http://goo.gl/forms/7Umm4NDE0l <http://goo.gl/forms/7Umm4NDE0l>*See more details in call for participation below:', 'deadline');
 
   classifier.addDocument('your credit card has expired. Please recharge the card', 'reminders');
   classifier.addDocument('credit card date expiration, renew the card', 'reminders');
   classifier.addDocument('expiry of credit or debit card. Apply for a new card', 'reminders');
 
   classifier.addDocument('conference. Hello Mr. John, I just request you to schedule a conference. The manager from each division will be a part of it as will the CEO. Please, let me know the updates.', 'meeting');
-  classifier.addDocument('expiry of credit or debit card. Apply for a new card', 'reminders');
+  classifier.addDocument('Month grocery reminder, remember to buy milk and toiled paper', 'reminders');
   classifier.addDocument('Reunion. Hello Everyone, we are trying to arrange a get together for our batch. Lets meet today regarding this issue.', 'meeting');
 
   classifier.addDocument('Annual General Meeting. Tivoli A/S Annual General Meeting will take place Monday 18 April 2016, at 13.00 pm, at the Tivoli Concert Hall.', 'meeting');
@@ -65,7 +73,7 @@ module.exports = function(){
 
   classifier.addDocument('Online Course Registration. To get a free online course on the introductory programming do registration by March 1, 2016', 'registration');
 
-  classifier.addDocument('Google Dev Conference. Google devs are invited to take complete the registration by March 1, 2016', 'registration');
+  classifier.addDocument('Google Dev Conference. Google devs are invited to complete the registration by March 1, 2016', 'registration');
   //deadline
 
   classifier.addDocument('Call for issues. Any issues for the agenda of the Annual General Meeting must be submitted in writing to executive assistant Laura Lund Olsen at llo@tivoli.dk no later than 4 March 2016.', 'deadline');
@@ -76,7 +84,7 @@ module.exports = function(){
 
   classifier.addDocument('MIS Lab Registration. Hereby MIS 205/CSE 410 students are requested to register for the MIS Lab by the end of second week of the semester spring, 2016.', 'deadline');
 
-  classifier.addDocument('ACCR Submission. Hereby, all the executives are requested to submit their subordinate’s ACCR by May 30, 2016 to the management.', 'deadline');
+  classifier.addDocument('ACCR Submission. Hereby, all the executives are requested to submit their subordinate’s ACCR by the deadline of May 30, 2016 to the management.', 'deadline');
 
   classifier.addDocument('Faculty Evaluation. This is notify that students must complete their online faculty evaluation by the last week of the semester spring, 2016, otherwise grades will not be updated.', 'deadline');
 
@@ -95,18 +103,24 @@ module.exports = function(){
   classifier.addDocument('Transfer US$10K to Harrry’s Account ', 'reminders');
 
   classifier.addDocument('License date expiration, renew the license card', 'reminders');
+    classifier.addDocument('Reminder: Join the AWS Webinar Series - February Join our February Webinar Series to keep up to date with AWS and learn about the latest best practices.', 'reminders');
 
   classifier.addDocument('Get the medicine from the Pharmacy', 'reminders');
+    classifier.addDocument('Reminder: Concert coming up. Hi, just wanted to remind you about our upcoming events that you might like', 'reminders');
 
   classifier.addDocument('Pay the EMI', 'reminders');
+    classifier.addDocument('Evernote reminder email Did you checkout the latest features yet?', 'reminders');
 
-  classifier.addDocument('Call Sam after dinner', 'reminders');
+  classifier.addDocument('Call Sam after dinner remember to call Sam after dinner today', 'reminders');
 
-  classifier.addDocument('Get back to home with john', 'reminders');
+  classifier.addDocument('Bill pay reminder, Your billing statement is ready for the month of May', 'reminders');
 
-  classifier.addDocument('Call Sam after dinner', 'reminders');
+  classifier.addDocument('Tomorrow: Join 26 HTML5 Developers Hello Entrepreneurs, join us in welcoming Kym McNicolas: EMMY AWARD-WINNING Anchor/Reporter/Producer and Entrepreneur with 17 years of on-camera experience on national television and online', 'reminders');
   classifier.addDocument('hello! how are you?','uncategorised');
 classifier.addDocument('The car was broken so I could not come','uncategorised');
+classifier.addDocument('Suspicious sign in prevented Someone recently used your password to try to sign in to your account','uncategorised');
+classifier.addDocument('Account password was changed. The password for your account was recently changed. If you made this change, you do not need to do anything more. If you did not change your password, your account might have been hijacked. To get back into your account, you will need to reset your password. ','uncategorised');
+classifier.addDocument('Someone has your password Someone just used your password to try to sign in to your account using an application such as an email client or mobile device','uncategorised');
 classifier.addDocument('school was closed yesterday','uncategorised');
 classifier.addDocument('A prize has been awarded to Beatrice and Mr Jones also won.','uncategorised');
 classifier.addDocument('trailing in fifth place in South Carolina, with just eight percent of the vote','uncategorised');
@@ -115,14 +129,15 @@ classifier.addDocument('It takes high marks in areas such as financial strength,
 classifier.addDocument('its an excuse to go out armed with business cards, pay for bottle service, and probably still go home ','uncategorised');
 classifier.addDocument('I’ve got the upper hand right now, at least when it comes to jogging','uncategorised');
 classifier.addDocument('we have reached the grand finale','uncategorised');
-classifier.addDocument('please add me to your LinkedIn network. I would like to join your LinkedIn network.','uncategorised');
-classifier.addDocument('is now following you on Twitter! You have a new follower on Twitter.','uncategorised');
+classifier.addDocument('Order confirmation. Thank you for your order, your order has been processed','uncategorised');
+classifier.addDocument('please add me to your LinkedIn network. I would like to join your LinkedIn network. You are receiving Invitation emails','uncategorised');
+classifier.addDocument('is now following you on Twitter! You have a new follower on Twitter. Thank you for following!','uncategorised');
 classifier.addDocument('An awe-inspiring story! This week the internet is a-buzz with this very heart-breaking yet awe-inspiring story.','uncategorised');
 classifier.addDocument('Latest updates from your friends. Check out what your friends have been up to recently.','uncategorised');
 
   classifier.train();
   //  console.log(classifier.getClassifications('expired'));
-  //  console.log(classifier.classify('expired'));
+   console.log(classifier.classify('order processed'));
   return classifier;
 
 };
