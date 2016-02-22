@@ -76,6 +76,7 @@ class Home extends React.Component {
 <ul>
 <li><a href="https://developers.google.com/gmail/api/" target="_blank">Gmail API</a></li>
 <li><a href="https://github.com/NaturalNode/natural" target="_blank">Natural</a></li>
+<li><a href="https://facebook.github.io/react/" target="_blank">React</a></li>
 <li><a href="https://react-bootstrap.github.io" target="_blank">React-Bootstrap</a></li>
 </ul>
 

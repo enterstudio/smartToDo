@@ -26,5 +26,5 @@ The TODO data is persisted throughout each server session, and resets if the ser
 
 * [Gmail API](https://developers.google.com/gmail/api/)
 * [Natural](https://github.com/NaturalNode/natural)
-* [React.js](https://facebook.github.io/react/)
+* [React](https://facebook.github.io/react/)
 * [React-Bootstrap](https://react-bootstrap.github.io)
