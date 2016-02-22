@@ -44,12 +44,12 @@ class Home extends React.Component {
             </p>
           </Jumbotron>
 
-            <Col lg={5} md={5} sm={5} xs={5}>
+            <Col lg={6} md={6} sm={6} xs={6}>
               <h2 className="details">Preview</h2>
               <hr/>
               <img className="preview" src="static/images/preview.png"/>
             </Col>
-            <Col lg={7} md={7} sm={7} xs={7}>
+            <Col lg={6} md={6} sm={6} xs={6}>
               <h2 className="details">How it works</h2>
 
               <hr/>
@@ -62,7 +62,7 @@ class Home extends React.Component {
                 <p>This app has been built for the <a href="https://www.koding.com/Hackathon" target="_blank">hack.summit() Virtual Hackathon 2016</a>. </p>
 <p>For this demo, 20 emails are fetched only once when a user logs in with Gmail for the first time. No subsequent fetch calls are made if the user logs out and logs in again. The TODO data is persisted throughout each server session, and resets if the server is restarted.
 </p>
-<p>Disclaimer: The sample size of training data is small given the time constraints, hence high accuracy in email classification cannot be guaranteed.</p>
+<p><em>Disclaimer</em>: The sample size of training data is small given the time constraints, hence high accuracy in email classification is not guaranteed.</p>
 
 <p><a href="https://github.com/tech-dojo/smartToDo" target="_blank">GitHub link to the code</a></p>
 

@@ -96,7 +96,7 @@ function getFirstEmails(auth, res, user){
 	google.gmail('v1').users.messages.list({
 		auth: auth,
 		userId: 'me',
-		maxResults: 10,
+		maxResults: 20,
 		labelIds: ['INBOX','IMPORTANT']
 	}, function(err, response){
 		if (err) {
@@ -150,7 +150,7 @@ function getFirstEmails(auth, res, user){
 			 }
 			 			setTimeout(function(){
 							res.json(user);
-						}, 3000);
+						}, 4000);
 
 		 }
 	});
