@@ -6,8 +6,13 @@ class HelloWorld extends React.Component {
     super(props, context);
     this.history = props.history;
     // console.log(props);
-    if(props.location.query)
+    if(props.location.query && props.location.query.code)
      UserStore.fetchUser(props.location.query.code);
+    else{
+      setTimeout(function(){
+        UserStore.fetchDemo();
+      }, 2000);
+    }
     this._onChange = this._onChange.bind( this );
   }
   componentWillMount() {

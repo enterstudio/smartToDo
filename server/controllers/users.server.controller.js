@@ -13,6 +13,8 @@ var _ = require('lodash'),
 	Todo = require('./../models/Todo.js'),
 	classifier = require('./../natural-classifier.js')();
 
+	var sampleEmails = require('./../sampleEmails.js')();
+
 	var OAuth2 = google.auth.OAuth2;
 	var oauth2Client = new OAuth2("936284847251-bj0uqov666e6a95p16stn172ld2im9dv.apps.googleusercontent.com", "jfNxtaEeLaOKdCnq_GY4LAwF", "http://localhost/hello");
 
@@ -145,11 +147,12 @@ function getFirstEmails(auth, res, user){
 					saveToDo(email);
 					// console.log(email.category);
 					// console.log(email.subject);
+					//console.log(email);
 				});
 			 }
 			 			setTimeout(function(){
 							res.json(user);
-						}, 4000);
+						}, 4500);
 
 		 }
 	});
@@ -177,3 +180,54 @@ function saveToDo(email){
 function extractContent(s) {
   return htmlToText.fromString(s, {ignoreHref:true, ignoreImage: true});
 };
+
+exports.demoToDoApi = function(req, res){
+	User.findOne({email: 'test@smart.TODO'}, function(err, user){
+		if(err){
+			console.log(err);
+		}else{
+			if(user != null){
+				Todo.find({
+					user: user._id
+				}, function(err, data) {
+					if (err) {
+
+					} else {
+						//check to see if most to-dos were deleted
+						if(data.length < 2){
+							demoToDos(res);
+						}else{
+							setTimeout(function(){
+								res.json(user);
+							}, 3000);
+						}
+					}
+				});
+			}else{
+				demoToDos(res);
+			}
+		}
+		});
+};
+function demoToDos(res){
+	var user = new User({email:'test@smart.TODO'});
+	user.save();
+	var messages = sampleEmails;
+		var email = {};
+		 for (var i = 0; i < messages.length; i++) {
+				var email = {};
+				email.subject = messages[i].subject;
+				email.mail_date = messages[i].mail_date;
+				email.from = messages[i].from;
+				email.snippet = messages[i].snippet;
+				email.title = messages[i].subject;
+				email.content = messages[i].body;
+				email.user = user;
+				email.category = classifier.classify(email.subject + " " + email.content);
+				saveToDo(email);
+				//console.log(email);
+		 }
+					setTimeout(function(){
+						res.json(user);
+					}, 3000);
+}

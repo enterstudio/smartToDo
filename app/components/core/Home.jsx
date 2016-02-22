@@ -8,14 +8,19 @@ import UserStore from './../../stores/UserStore.jsx';
 class Home extends React.Component {
   constructor(props, context){
     super(props, context);
+    this.history = props.history;
     this.state = {};
     this.state.loggedIn = !!((typeof window !== "undefined") ? localStorage.user : undefined);
     this._onChange = this._onChange.bind( this );
+    this.showDemo = this.showDemo.bind(this);
   }
   authGmail(e) {
     e.preventDefault();
     console.log('test');
     UserStore.signup();
+  }
+  showDemo(){
+    this.history.replaceState(null, '/hello');
   }
 
   componentWillMount() {
@@ -39,7 +44,7 @@ class Home extends React.Component {
               <p>Take back your time! Deal with emails efficiently, like never before.</p>
               <img src="static/images/intro.png"/>
             <p>
-              <Button bsSize="large" bsStyle="danger" onClick={this.authGmail}>Sign In with Gmail</Button><br/>
+              <Button bsSize="large" bsStyle="danger" onClick={this.authGmail}>Sign In with Gmail</Button> <Button bsSize="large" bsStyle="primary" onClick={this.showDemo}>Demo with sample Emails</Button><br/>
               <small>Try the demo now!</small>
             </p>
           </Jumbotron>
@@ -55,12 +60,13 @@ class Home extends React.Component {
               <hr/>
               <Well className="howitworks">
                 <ul>
-                  <li>Fetches recent 20 emails when user logs in with Gmail for the very first time</li>
+                  <li>Fetches recent 20 emails for a user (sample emails or from user's Gmail inbox)</li>
                   <li>Applies natural language processing (Naive Bayesian Classification) on each email to classify into the following categories: Meeting, Reminder, Registration, Deadline & Uncategorized. (The categories are determined using Bayesian classifiers created with training data)</li>
                   <li>Converts categorized emails into TODO items, which the user can edit, delete and mark as completed</li>
                 </ul>
                 <p>This app has been built for the <a href="https://www.koding.com/Hackathon" target="_blank">hack.summit() Virtual Hackathon 2016</a>. </p>
-<p>For this demo, 20 emails are fetched only once when a user logs in with Gmail for the first time. No subsequent fetch calls are made if the user logs out and logs in again. The TODO data is persisted throughout each server session, and resets if the server is restarted.
+<p>For the <strong>demo with sample emails</strong>, 20 emails are read from <a href="" target="_blank">this sample JSON</a> for a dummy user.</p>
+<p>For the <strong>demo with Gmail signin</strong>, 20 emails are fetched only once when a user logs in with their Gmail for the first time. No subsequent fetch calls are made if the user logs out and logs in again.</p> <p>The TODO data is persisted throughout each server session, and resets if the server is restarted.
 </p>
 <p><em>Disclaimer</em>: The sample size of training data is small given the time constraints, hence high accuracy in email classification is not guaranteed.</p>
 

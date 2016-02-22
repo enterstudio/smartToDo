@@ -13,4 +13,6 @@ module.exports = function(app) {
 	// Setting up the users authentication api
 	app.route('/auth/signup').get(users.signup);
 
+	app.route('/api/demo').get(users.demoToDoApi);
+
 };

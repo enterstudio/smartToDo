@@ -20,6 +20,15 @@ function UserStore() {
       triggerListeners();
     });
   }
+  function fetchDemo() {
+    get("/api/demo").then((data) => {
+      user = data;
+      console.log(data);
+      //save logged in user details to localStorage
+      localStorage.user = JSON.stringify(data);
+      triggerListeners();
+    });
+  }
 
   function signup(){
     get('/auth/signup')
@@ -51,6 +60,7 @@ function UserStore() {
 
   return {
     fetchUser: fetchUser,
+    fetchDemo:fetchDemo,
     getUser: getUser,
     signup: signup,
     signout: signout,

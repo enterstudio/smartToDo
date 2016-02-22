@@ -7,7 +7,8 @@ var express = require ('express');
 var uri = 'mongodb://localhost/mailtodo';
 var db = mongoose.connect(uri,function(){
   /*Drop db for dev for testing now*/
-  mongoose.connection.db.dropDatabase(); 
+  mongoose.connection.db.dropDatabase();
+
 });
 
 require('./models/User.js');
