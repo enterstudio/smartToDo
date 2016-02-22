@@ -12,7 +12,7 @@ Take back your time! Deal with emails efficiently, like never before.
 
 This app has been built for the [hack.summit() Virtual Hackathon 2016](https://www.koding.com/Hackathon).
 
-For the **demo with sample emails**, 20 emails are read from [this sample JSON](https://raw.githubusercontent.com/tech-dojo/smartToDo/master/server/sampleEmails.js) for a dummy user.
+For the **demo with sample emails**, 12 emails are read from [this sample JSON](https://raw.githubusercontent.com/tech-dojo/smartToDo/master/server/sampleEmails.js) for a dummy user.
 
 For the **demo with Gmail signin**, 20 emails are fetched only once when a user logs in with their Gmail for the first time. No subsequent fetch calls are made if the user logs out and logs in again.
 

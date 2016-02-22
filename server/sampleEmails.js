@@ -59,6 +59,20 @@ module.exports = function(){
   	from: 'Ma J. <maj@home.com>',
   	snippet:'We are out of milk and orange juice',
   	body:'We are out of milk and orange juice, remember to pick up some on your way here. M.'
+  },
+  {
+    subject: 'Meeting with Gerry & Rod',
+    mail_date:'Wed, 17 Feb 2016 12:15:06 -0600',
+    from: 'Terry <terry@krw.com>',
+    snippet:'As we discussed earlier, I set up the meeting for Saturday',
+    body:'As we discussed earlier, I set up the meeting for Saturday the 27th at 11pm.'
+  },
+  {
+    subject: 'Registrations open for SMe2016',
+    mail_date:'Wed, 17 Feb 2016 12:15:06 -0600',
+    from: 'Terry <terry@krw.com>',
+    snippet:'We are pleased to annnouce, that early-bird registrations are ',
+    body:'We are pleased to annnouce, that early-bird registrations are now open for SMe2016! You can register at our website.'
   }];
 return sampleEmails;
 };

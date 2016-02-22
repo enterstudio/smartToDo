@@ -199,7 +199,7 @@ exports.demoToDoApi = function(req, res){
 						}else{
 							setTimeout(function(){
 								res.json(user);
-							}, 3000);
+							}, 3500);
 						}
 					}
 				});
@@ -229,5 +229,5 @@ function demoToDos(res){
 		 }
 					setTimeout(function(){
 						res.json(user);
-					}, 3000);
+					}, 3500);
 }
