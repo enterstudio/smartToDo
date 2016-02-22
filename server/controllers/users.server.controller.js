@@ -53,7 +53,7 @@ exports.gmailToken = function(req, res){
 						 console.log(err);
 					 }else{
 						 if(user == null){
-							 console.log('new');
+							//  console.log('new');
 							 user = new User({ email: response.emailAddress, messagesTotal: response.messagesTotal, threadsTotal: response.threadsTotal, historyId: response.historyId, token: tokens });
 							 user.save(function(err,data){
 								 if (err) {
@@ -105,7 +105,6 @@ function getFirstEmails(auth, res, user){
 		}
 		var messages = response.messages;
 		  if (messages.length == 0) {
-		 	 console.log('No labels found.');
 		  } else {
 				var email = {};
 			 for (var i = 0; i < messages.length; i++) {
@@ -144,8 +143,8 @@ function getFirstEmails(auth, res, user){
 					}
 					email.category = classifier.classify(email.subject + " " + email.content);
 					saveToDo(email);
-					console.log(email.category);
-					console.log(email.subject);
+					// console.log(email.category);
+					// console.log(email.subject);
 				});
 			 }
 			 			setTimeout(function(){

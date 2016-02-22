@@ -121,8 +121,8 @@ classifier.addDocument('An awe-inspiring story! This week the internet is a-buzz
 classifier.addDocument('Latest updates from your friends. Check out what your friends have been up to recently.','uncategorised');
 
   classifier.train();
-   console.log(classifier.getClassifications('expired'));
-   console.log(classifier.classify('expired'));
+  //  console.log(classifier.getClassifications('expired'));
+  //  console.log(classifier.classify('expired'));
   return classifier;
 
 };

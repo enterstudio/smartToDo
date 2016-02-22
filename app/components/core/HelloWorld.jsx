@@ -5,7 +5,7 @@ class HelloWorld extends React.Component {
   constructor(props, context){
     super(props, context);
     this.history = props.history;
-    console.log(props);
+    // console.log(props);
     if(props.location.query)
      UserStore.fetchUser(props.location.query.code);
     this._onChange = this._onChange.bind( this );

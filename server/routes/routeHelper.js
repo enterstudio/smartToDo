@@ -20,7 +20,6 @@ module.exports = function(app) {
   };
 
   app.use((req, res, next) => {
-    console.log(req.hostname);
     const location = createLocation(req.path);
 
     // Note that req.url here should be the full URL path from
