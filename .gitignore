@@ -8,3 +8,4 @@ tmp
 .profile
 Web/
 .DS_Store
+server/config.js

@@ -6,6 +6,7 @@
 var _ = require('lodash'),
 	errorHandler = require('./errors.server.controller'),
 	mongoose = require('mongoose'),
+	config = require('./../config.js'),
 	User = mongoose.model('User'),
 	google = require('googleapis'),
 	atob = require('atob'),
@@ -16,7 +17,7 @@ var _ = require('lodash'),
 	var sampleEmails = require('./../sampleEmails.js')();
 
 	var OAuth2 = google.auth.OAuth2;
-	var oauth2Client = new OAuth2("936284847251-bj0uqov666e6a95p16stn172ld2im9dv.apps.googleusercontent.com", "jfNxtaEeLaOKdCnq_GY4LAwF", "http://localhost/hello");
+	var oauth2Client = new OAuth2(config.googleAPI.token, config.googleAPI.secret, config.googleAPI.redirectURL);
 
 	var scopes = [
 	  'https://www.googleapis.com/auth/gmail.readonly',
