@@ -4,6 +4,8 @@ Take back your time! Deal with emails efficiently, like never before.
 
 ![Intro](https://raw.githubusercontent.com/tech-dojo/smartToDo/master/app/images/intro.png "Intro")
 
+#### [Checkout the Demo](http://smarttodo.tech-dojo.org/)
+
 ### How it works
 
 1. Fetches recent 20 emails for a user (sample emails or from user's Gmail inbox)
