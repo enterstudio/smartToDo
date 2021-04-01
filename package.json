@@ -28,7 +28,7 @@
     "html-to-text": "^1.6.2",
     "jquery": "^2.2.0",
     "lodash": "^3.10.1",
-    "mongoose": "4.0.3",
+    "mongoose": "5.12.3",
     "natural": "^0.2.1",
     "react": "^0.14.3",
     "react-bootstrap": "^0.28.1",
